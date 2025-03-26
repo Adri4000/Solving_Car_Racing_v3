@@ -1,6 +1,24 @@
-# Problem Formulation
-The Car Racing game scenario involves a racing environment represented by a closed-loop track, wherein an autonomous agent maneuvers a racing car. The track is comprised of fixed-width tiles and situated within a defined field with discernible boundaries. The objective of the game is to efficiently traverse each track tile in the shortest possible time. Termination of an episode occurs upon visiting all tiles, exiting the playfield, or reaching a predefined frame limit of one thousand frames.<br>
+# Solving_Car_Racing_v3
 
+*Authors*: Adrien Fu, Raphaël Faure  
+*Date*: March 2025
+
+## Overview
+
+This project uses Deep Reinforcement Learning to train agents to solve the CarRacing-v3 environment from Gymnasium. We compare two algorithms:
+
+- **DQN (Deep Q-Network)** implemented from scratch
+- **PPO (Proximal Policy Optimization)** using Stable-Baselines3
+
+The goal is to teach agents to drive efficiently with partial observability.
+
+## Environment
+
+- **CarRacing-v3 (Discrete)**
+- **Observation**: 96x96 RGB frames
+- **Action space**: 5 discrete actions (nothing, left, right, gas, brake)
+- **Rewards**: +1000/N per tile visited, -0.1 per frame, -100 if off track
+- 
 The run example given in the gif is rendered in full-scale mode i.e., that is what a human sees playing this game.<br>
 
 <p align='center'>
@@ -8,9 +26,32 @@ The run example given in the gif is rendered in full-scale mode i.e., that is wh
 </p>
 
 
+## Methods
+
+### DQN
+
+- Custom implementation with experience replay and target network
+- Architecture: CNN → 2 FC layers
+  
+<p align='center'>
+<img src='./images/DQN.png'>
+</p>
+
+- 600,000 steps (~12h), final average reward: **605**
+
+### PPO
+
+- Stable-Baselines3 with CNN policy
+
+<p align='center'>
+<img src='./images/PPO.png'>
+</p>
+
+- 650,000 steps (~3h), final average reward: **733**
+- Faster convergence, but temporary policy collapse observed
 
 
-However, the produced frames are modified before further processing. They are transformed from an RGB state representation to grayscale, and the resolution is downscaled to 84x84 pixels. These steps facilitate the network computations making them less complex. Furthermore, to enable the network to track the car dynamics correctly and better adjust agent actions to a current state, every consecutive frame is stacked with other three preceding frames. Hence, every state is represented by a series of four consecutive grayscale frames of 84x84 resolution. A state example is demonstrated in the figure above. A transition from one state to another is performed by adding a new frame on top of the stack and discarding the most distant one.<br>
+
 
 # Description
 ### Network
@@ -100,3 +141,46 @@ The obtained results of training and evaluation allow to conclude that the maxim
 [1] V. Mnih et al., "Human-level control through deep reinforcement learning”, Nature, vol. 518, pp. 529–533, 2015. DOI: 10.1038/nature14236.<br>
 [2] H. van Hasselt, A. Guez, and D. Silver, "Deep reinforcement learning with double Q-Learning”, in Proceedings of the Thirtieth AAAI Conference on Artificial Intelligence (AAAI'16), AAAI Press, 2016, pp. 2094–2100.<br>
 [3] M. Towers et al., "Gymnasium”, Zenodo, 2023. DOI: 10.5281/zenodo.8127026.
+
+# Solving_Car_Racing_v3
+
+**Authors**: Adrien Fu, Raphaël Faure  
+**Date**: March 2025
+
+## Overview
+
+This project uses Deep Reinforcement Learning to train agents to solve the CarRacing-v3 environment from Gymnasium. We compare two algorithms:
+
+- **DQN (Deep Q-Network)** implemented from scratch
+- **PPO (Proximal Policy Optimization)** using Stable-Baselines3
+
+The goal is to teach agents to drive efficiently with partial observability.
+
+## Environment
+
+- **CarRacing-v3 (Discrete)**
+- **Observation**: 96x96 RGB frames
+- **Action space**: 5 discrete actions (nothing, left, right, gas, brake)
+- **Rewards**: +1000/N per tile visited, -0.1 per frame, -100 if off track
+
+## Methods
+
+### DQN
+
+- Custom implementation with experience replay and target network
+- Preprocessing: grayscale, 60x60 crop, stack of 4 frames
+- Architecture: CNN → 2 FC layers
+- 600,000 steps (~12h), final average reward: **605**
+
+### PPO
+
+- Stable-Baselines3 with CNN policy
+- Trained on raw 96x96 RGB frames
+- 650,000 steps (~3h), final average reward: **733**
+- Faster convergence, but temporary policy collapse observed
+
+## Repository Structure
+
+
+
+
