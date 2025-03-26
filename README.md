@@ -70,8 +70,8 @@ Here are our two agents :
 ### Results
 
 <p align="center">
-  <img src="./images/dqn agent.png" alt="DQN Agent" width="45%"/>
-  <img src="./images/ppo agent.png" alt="PPO Agent" width="45%"/>
+  <img src="./images/dqn_agent.png" alt="DQN Agent" width="45%"/>
+  <img src="./images/ppo_agent.png" alt="PPO Agent" width="45%"/>
 </p>
 
 
