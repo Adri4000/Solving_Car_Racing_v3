@@ -69,11 +69,15 @@ Here are our two agents :
 
 ### Results
 
+**DQN Agent**
 <p align="center">
   <img src="./images/dqn_agent.png" alt="DQN Agent" width="45%"/>
-  <img src="./images/ppo_agent.png" alt="PPO Agent" width="45%"/>
 </p>
 
+**PPO Agent** 
+<p align="center">
+  <img src="./images/ppo_agent.png" alt="PPO Agent" width="45%"/>
+</p>
 
 | Agent | Steps | Time   | Final Avg Return | Stability       |
 |-------|-------|--------|------------------|-----------------|
