@@ -34,7 +34,7 @@ The run example given in the gif is rendered in full-scale mode i.e., that is wh
 - Architecture: CNN → 2 FC layers
   
 <p align='center'>
-<img src='./images/DQN.png'>
+<img src='./images/dqn architecture.png'>
 </p>
 
 - 600,000 steps (~12h), final average reward: **605**
@@ -44,7 +44,7 @@ The run example given in the gif is rendered in full-scale mode i.e., that is wh
 - Stable-Baselines3 with CNN policy
 
 <p align='center'>
-<img src='./images/PPO.png'>
+<img src='./images/ppo architecture.png'>
 </p>
 
 - 650,000 steps (~3h), final average reward: **733**
