@@ -8,7 +8,7 @@
 ```
 .
 ├── CarRacing_v3_Fu_Faure.ipynb     # Main Notebook illustrating our work
-├── main.py                         # model testing script
+├── main.py                         # Model testing script
 ├── true_dqn.pt                     # Trained DQN model
 ├── true_output_PPO.txt             # PPO training logs
 ├── true_ppo_data.zip               # Trained PPO model
